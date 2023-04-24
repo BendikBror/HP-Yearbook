@@ -19,8 +19,28 @@
         <img class="house-img" src="assets/pngegg.png" alt="Hufflepuff" data-house="Hufflepuff">
         <img class="house-img" src="assets/ravenclaw.png" alt="Ravenclaw" data-house="Ravenclaw">
       </div>
-    <ul id="student-list">
-    </ul>
+      <label for="searchInput">Search for student:</label>
+      <input type="text" id="searchInput" placeholder="Enter students name...">
+      <p id="searchResult"></p>
+      <br>
+      <button id="btnRandomStudent"> Get a random student </button>
+      <p id="result"></p>
+      <div id="studentCard">
+
+      </div>
+      <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>House</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="student-list"></tbody>
+        </table>
+    </div>
   </div>
    </main> 
     <footer></footer>
