@@ -40,6 +40,7 @@ fetch(API)
     console.error(error);
   });
 
+
  
 
 function displayStudents(students) {
