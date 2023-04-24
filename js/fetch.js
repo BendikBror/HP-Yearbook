@@ -52,7 +52,7 @@ function displayStudents(students) {
       age = 2023 - parseInt(student.yearOfBirth);
     }
     else if(!isAlive){
-      age = "Deceased";
+      age = `<span style=color:red>Deceased</span>`;
     }
     studentList.innerHTML += `
                 <tr>
@@ -66,6 +66,7 @@ function displayStudents(students) {
                 `;
   });
 }
+
 
 
 btn_randomStudent.addEventListener("click", () => {
@@ -83,8 +84,8 @@ btn_randomStudent.addEventListener("click", () => {
 });
 
 //Under arbeid
-/*
-searchInput.addEventListener("keyup", () => {
+
+searchInput.addEventListener("input", () => {
   const keyword = searchInput.value.toLowerCase();
 
   searchResult.innerHTML = "";
@@ -94,5 +95,4 @@ searchInput.addEventListener("keyup", () => {
       searchResult.innerHTML = student.name;
     }
   });
-});*/
-
+});
