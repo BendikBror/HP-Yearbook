@@ -104,3 +104,42 @@ img > tbody {
   font-size: 24px;
   color: #4d4d4d;
 }
+
+td.gryffindor {
+  background-color: #740002c5;
+  color: white;
+}
+td.slytherin {
+  background-color: #1a472ac5;
+  color: white;
+}
+td.hufflepuff {
+  background-color: #ecb939c5;
+  color: white;
+}
+td.ravenclaw {
+  background-color: #313de2c5;
+  color: white;
+}
+
+td.gryffindor:hover {
+  background-color: #740002c5;
+  color: white;
+  cursor: pointer;
+  
+}
+td.slytherin:hover {
+  background-color: #1a472ac5;
+  color: white;
+  cursor: pointer;
+}
+td.hufflepuff:hover {
+  background-color: #ecb939c5;
+  color: white;
+  cursor: pointer;
+}
+td.ravenclaw:hover {
+  background-color: #313de2c5;
+  color: white;
+  cursor: pointer;
+}

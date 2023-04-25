@@ -62,12 +62,14 @@ function displayStudents(students) {
     } else if (!isAlive) {
       age = `<span style=color:red>Deceased</span>`;
     }
+    const houseClass = student.house.toLowerCase();
+    
     studentList.innerHTML += `
                 <tr>
-                    <td><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
-                    <td>${student.name}</td>
-                    <td>${student.house}</td>
-                    <td>${age}</td>
+                    <td class="${houseClass}"><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
+                    <td class="${houseClass}">${student.name}</td>
+                    <td class="${houseClass}">${student.house}</td>
+                    <td class="${houseClass}">${age}</td>
                 </tr>    
                 `;
   });
