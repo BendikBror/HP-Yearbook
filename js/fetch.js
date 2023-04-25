@@ -43,28 +43,24 @@ form.addEventListener("submit", (event) => {
   const name = document.getElementById("name").value;
   const house = document.getElementById("house").value;
   const yearOfBirth = document.getElementById("yearOfBirth").value;
-  const newStudent ={name: name, house: house, yearOfBirth: yearOfBirth};
+  const newStudent = { name: name, house: house, yearOfBirth: yearOfBirth };
   allStudents.unshift(newStudent);
   displayStudents(allStudents);
-})
- 
+});
 
 function displayStudents(students) {
   studentList.innerHTML = "";
   students.forEach((student) => {
     const isAlive = student.alive;
     let age = "unknown";
-    if ( student.yearOfBirth != "" && isAlive){
+    if (student.yearOfBirth != "" && isAlive) {
       age = 2023 - parseInt(student.yearOfBirth);
-    }
-    else if(!isAlive){
+    } else if (!isAlive) {
       age = `<span style=color:red>Deceased</span>`;
     }
     studentList.innerHTML += `
                 <tr>
-                    <td><img class="portrait-img" src="${student.image}" alt="${
-      student.name
-    }"></td>
+                    <td><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
                     <td>${student.name}</td>
                     <td>${student.house}</td>
                     <td>${age}</td>
@@ -72,9 +68,6 @@ function displayStudents(students) {
                 `;
   });
 }
-
-
-
 
 btn_randomStudent.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * allStudents.length);
@@ -90,24 +83,22 @@ btn_randomStudent.addEventListener("click", () => {
   //result.innerHTML = randomStudent.name;
 });
 
-function searchStudent(){
+function searchStudent() {
   const searchInput = document.getElementById("searchInput").value;
   const searchResult = document.getElementById("searchResult");
   searchResult.innerHTML = "";
-  const foundStudents = allStudents.filter(function(student){
+  const foundStudents = allStudents.filter(function (student) {
     return student.name.toLowerCase().includes(searchInput.toLowerCase());
   });
-  if (foundStudents.length > 0){
+  if (foundStudents.length > 0) {
     const resultList = document.createElement("ul");
-    foundStudents.forEach(function(student){
+    foundStudents.forEach(function (student) {
       const listItem = document.createElement("li");
       listItem.innerHTML = `Name: ${student.name}, House: ${student.house}, Birthyear: ${student.yearOfBirth}`;
       resultList.appendChild(listItem);
-    })
+    });
     searchResult.appendChild(resultList);
+  } else {
+    searchResult.innerHTML = `<p> No student with this name </p>`;
   }
-  else{
-    searchResult.innerHTML = `<p> No student with this name </p>`
-  }
-
 }
