@@ -6,9 +6,8 @@ const houseImages = document
 const studentList = document.getElementById("student-list");
 const allStudents = [];
 const btn_randomStudent = document.getElementById("btnRandomStudent");
+const form = document.getElementById("newStudent");
 const result = document.getElementById("result");
-const searchInput = document.getElementById("searchInput");
-const searchResult = document.getElementById("searchResult");
 const studentCard = document.getElementById("studentCard");
 
 fetch(API)
@@ -20,7 +19,6 @@ fetch(API)
     data.forEach((student) => {
       allStudents.push(student);
     });
-    console.log(allStudents);
     //viser alle elever når siden loades inn
     displayStudents(data);
 
@@ -40,7 +38,15 @@ fetch(API)
     console.error(error);
   });
 
-
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const house = document.getElementById("house").value;
+  const yearOfBirth = document.getElementById("yearOfBirth").value;
+  const newStudent ={name: name, house: house, yearOfBirth: yearOfBirth};
+  allStudents.unshift(newStudent);
+  displayStudents(allStudents);
+})
  
 
 function displayStudents(students) {
@@ -69,6 +75,7 @@ function displayStudents(students) {
 
 
 
+
 btn_randomStudent.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * allStudents.length);
   const randomStudent = allStudents[randomIndex];
@@ -83,16 +90,24 @@ btn_randomStudent.addEventListener("click", () => {
   //result.innerHTML = randomStudent.name;
 });
 
-//Under arbeid
-
-searchInput.addEventListener("input", () => {
-  const keyword = searchInput.value.toLowerCase();
-
+function searchStudent(){
+  const searchInput = document.getElementById("searchInput").value;
+  const searchResult = document.getElementById("searchResult");
   searchResult.innerHTML = "";
-
-  students.forEach(function (student) {
-    if (student.name.toLowerCase().includes(keyword)) {
-      searchResult.innerHTML = student.name;
-    }
+  const foundStudents = allStudents.filter(function(student){
+    return student.name.toLowerCase().includes(searchInput.toLowerCase());
   });
-});
+  if (foundStudents.length > 0){
+    const resultList = document.createElement("ul");
+    foundStudents.forEach(function(student){
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `Name: ${student.name}, House: ${student.house}, Birthyear: ${student.yearOfBirth}`;
+      resultList.appendChild(listItem);
+    })
+    searchResult.appendChild(resultList);
+  }
+  else{
+    searchResult.innerHTML = `<p> No student with this name </p>`
+  }
+
+}

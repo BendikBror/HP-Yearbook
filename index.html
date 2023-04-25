@@ -49,25 +49,38 @@
 
       <label for="searchInput">Search for student:</label>
       <input type="text" id="searchInput" placeholder="Enter students name...">
-      <p id="searchResult"></p>
+      <button id="searchBtn" onclick="searchStudent()">Search</button> <br>
+      <div id="searchResult"></div>
       <br>
       <button id="btnRandomStudent"> Get a random student </button>
       <p id="result"></p>
       <div id="studentCard">
 
       </div>
-      <form>
-        <label for="name">Add name:</label>
-        <input type="text" id="name" name="name">
-        <label for="birthYear">Enter year of birth:</label>
-        <input type="number" id="birthYear" name="birthYear">
-        <label for="house">Select a house: </label>
-        <input type="checkbox" id="gryffindor" name="Gryffindor" value="Gryffindor">
-        <label for="Gryffindor"></label>
-        <input type="checkbox" id="slytherin">
-        <input type="checkbox" id="ravenclaw">
-        <input type="checkbox" id="hufflepuff">
-      </form>
+      <form id="newStudent">
+        <h2>Add new student</h2>
+        
+        <!--for navn -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <!--for valg av hus og en nedtrekksmeny med alternativer -->
+        <label for="house">House:</label>
+        <select id="house" name="house" required>
+          <option value="">Select a house</option>
+          <option value="Gryffindor">Gryffindor</option>
+          <option value="Hufflepuff">Hufflepuff</option>
+          <option value="Ravenclaw">Ravenclaw</option>
+          <option value="Slytherin">Slytherin</option>
+        </select>
+        <br>
+        <!--for årstall for fødselsdato -->
+        <label for="yearOfBirth">Year of birth:</label>
+        <input type="number" id="yearOfBirth" name="yearOfBirth">
+        <br>
+        <!-- Knapp for å legge til student -->
+        <button type="submit">Add student</button>
+    </form>
       <div>
         <table>
             <thead>
