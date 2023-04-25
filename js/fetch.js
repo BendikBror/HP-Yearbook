@@ -17,6 +17,9 @@ fetch(API)
   })
   .then((data) => {
     data.forEach((student) => {
+      if (!student.image) {
+        student.image = "https://www.kentuckysuicideprevention.org/wp-content/uploads/2021/05/Default-welcomer.png";
+      }
       allStudents.push(student);
     });
     //viser alle elever når siden loades inn
@@ -43,7 +46,8 @@ form.addEventListener("submit", (event) => {
   const name = document.getElementById("name").value;
   const house = document.getElementById("house").value;
   const yearOfBirth = document.getElementById("yearOfBirth").value;
-  const newStudent = { name: name, house: house, yearOfBirth: yearOfBirth };
+  const defaultPhotoLink = "https://www.kentuckysuicideprevention.org/wp-content/uploads/2021/05/Default-welcomer.png";
+  const newStudent = { name: name, house: house, yearOfBirth: yearOfBirth, image: defaultPhotoLink };
   allStudents.unshift(newStudent);
   displayStudents(allStudents);
 });
