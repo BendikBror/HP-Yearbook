@@ -62,24 +62,14 @@ function displayStudents(students) {
     } else if (!isAlive) {
       age = `<span style=color:red>Deceased</span>`;
     }
-    if (!isAlive) {
-      studentList.innerHTML += `
-        <tr>
-          <td><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
-          <td>${student.name}</td>
-          <td>${student.house}</td>
-          <td>${age}</td>
-        </tr>
-      `;
-    } else {
-      studentList.innerHTML += `
-        <tr>
-          <td><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
-          <td>${student.name}</td>
-          <td>${student.house}</td>
-        </tr>
-      `;
-    }
+    studentList.innerHTML += `
+                <tr>
+                    <td><img class="portrait-img" src="${student.image}" alt="${student.name}"></td>
+                    <td>${student.name}</td>
+                    <td>${student.house}</td>
+                    <td>${age}</td>
+                </tr>    
+                `;
   });
 }
 
