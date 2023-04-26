@@ -47,7 +47,7 @@ form.addEventListener("submit", (event) => {
   const house = document.getElementById("house").value;
   const yearOfBirth = document.getElementById("yearOfBirth").value;
   const defaultPhotoLink = "https://www.kentuckysuicideprevention.org/wp-content/uploads/2021/05/Default-welcomer.png";
-  const newStudent = { name: name, house: house, yearOfBirth: yearOfBirth, image: defaultPhotoLink };
+  const newStudent = { name: name, house: house, yearOfBirth: yearOfBirth, image: defaultPhotoLink, alive: true };
   allStudents.unshift(newStudent);
   displayStudents(allStudents);
 });
@@ -56,8 +56,8 @@ function displayStudents(students) {
   studentList.innerHTML = "";
   students.forEach((student) => {
     const isAlive = student.alive;
-    let age = "unknown";
-    if (student.yearOfBirth != "" && isAlive) {
+    let age = "uvisst";
+    if (student.yearOfBirth && isAlive) {
       age = 2023 - parseInt(student.yearOfBirth);
     } else if (!isAlive) {
       age = `<span style=color:red>Deceased</span>`;
